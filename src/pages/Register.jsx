@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
 import {useState} from "react";
 import axios from "axios";
-
+import styles from '../styles/Register.module.css'; // Import the CSS file
 
 const Register = () => {
     const {
@@ -43,75 +43,81 @@ const Register = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-50">
-            <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
-                <h2 className="text-2xl font-bold text-center mb-6">Create Account</h2>
+        <div className={styles.registerContainer}>
+            <div className={styles.registerCard}>
+                <h2 className={styles.registerTitle}>Create Account</h2>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                    {/* Full Name */}
-                    <div>
-                        <label className="block text-sm font-medium">Full Name</label>
-                        <input
-                            type="text"
-                            {...register("fullName", {required: "Full name is required"})}
-                            className="w-full px-3 py-2 border rounded-lg"
-                        />
-                        {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName.message}</p>}
+                <form onSubmit={handleSubmit(onSubmit)} className={styles.registerForm}>
+                    {/* Full Name and Username Row */}
+                    <div className={styles.formRow}>
+                        <div className={styles.inputGroup}>
+                            <label className={styles.inputLabel}>Full Name</label>
+                            <input
+                                type="text"
+                                placeholder="Enter your full name"
+                                {...register("fullName", {required: "Full name is required"})}
+                                className={styles.inputField}
+                            />
+                            {errors.fullName && <p className={styles.errorMessage}>{errors.fullName.message}</p>}
+                        </div>
+
+                        <div className={styles.inputGroup}>
+                            <label className={styles.inputLabel}>Username</label>
+                            <input
+                                type="text"
+                                placeholder="Choose a username"
+                                {...register("username", {required: "Username is required"})}
+                                className={styles.inputField}
+                            />
+                            {errors.username && <p className={styles.errorMessage}>{errors.username.message}</p>}
+                        </div>
                     </div>
 
-                    {/* Username */}
-                    <div>
-                        <label className="block text-sm font-medium">Username</label>
-                        <input
-                            type="text"
-                            {...register("username", {required: "Username is required"})}
-                            className="w-full px-3 py-2 border rounded-lg"
-                        />
-                        {errors.username && <p className="text-red-500 text-sm">{errors.username.message}</p>}
-                    </div>
+                    {/* Email and Password Row */}
+                    <div className={styles.formRow}>
+                        <div className={styles.inputGroup}>
+                            <label className={styles.inputLabel}>Email</label>
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                {...register("email", {required: "Email is required"})}
+                                className={styles.inputField}
+                            />
+                            {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
+                        </div>
 
-                    {/* Email */}
-                    <div>
-                        <label className="block text-sm font-medium">Email</label>
-                        <input
-                            type="email"
-                            {...register("email", {required: "Email is required"})}
-                            className="w-full px-3 py-2 border rounded-lg"
-                        />
-                        {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
-                    </div>
-
-                    {/* Password */}
-                    <div>
-                        <label className="block text-sm font-medium">Password</label>
-                        <input
-                            type="password"
-                            {...register("password", {required: "Password is required"})}
-                            className="w-full px-3 py-2 border rounded-lg"
-                        />
-                        {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+                        <div className={styles.inputGroup}>
+                            <label className={styles.inputLabel}>Password</label>
+                            <input
+                                type="password"
+                                placeholder="Create a password"
+                                {...register("password", {required: "Password is required"})}
+                                className={styles.inputField}
+                            />
+                            {errors.password && <p className={styles.errorMessage}>{errors.password.message}</p>}
+                        </div>
                     </div>
 
                     {/* Avatar */}
-                    <div>
-                        <label className="block text-sm font-medium">Avatar (required)</label>
+                    <div className={styles.inputGroup}>
+                        <label className={styles.inputLabel}>Avatar (required)</label>
                         <input
                             type="file"
                             accept="image/*"
                             {...register("avatar", {required: "Avatar is required"})}
-                            className="w-full px-3 py-2 border rounded-lg"
+                            className={styles.fileInput}
                         />
-                        {errors.avatar && <p className="text-red-500 text-sm">{errors.avatar.message}</p>}
+                        {errors.avatar && <p className={styles.errorMessage}>{errors.avatar.message}</p>}
                     </div>
 
                     {/* Cover Image */}
-                    <div>
-                        <label className="block text-sm font-medium">Cover Image (optional)</label>
+                    <div className={styles.inputGroup}>
+                        <label className={styles.inputLabel}>Cover Image (optional)</label>
                         <input
                             type="file"
                             accept="image/*"
                             {...register("coverImage")}
-                            className="w-full px-3 py-2 border rounded-lg"
+                            className={styles.fileInput}
                         />
                     </div>
 
@@ -119,13 +125,17 @@ const Register = () => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                        className={`${styles.submitButton} ${loading ? styles.loading : ''}`}
                     >
-                        {loading ? "Registering..." : "Register"}
+                        {loading ? "Creating Account..." : "Create Account"}
                     </button>
                 </form>
 
-                {message && <p className="mt-4 text-center text-sm text-gray-600">{message}</p>}
+                {message && (
+                    <p className={`${styles.messageText} ${message.includes('successfully') ? styles.success : styles.error}`}>
+                        {message}
+                    </p>
+                )}
             </div>
         </div>
     );
