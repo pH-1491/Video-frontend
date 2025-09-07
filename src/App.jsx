@@ -1,11 +1,19 @@
-import Header from './components/Header.jsx'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Welcome from "./pages/Welcome.jsx";
 
-function App() {
-  return (
-    <>
-      <Header />
-    </>
-  )
-}
 
-export default App
+
+const App = () => {
+    return (
+        <div>
+            <Welcome />
+            <Outlet />
+
+
+
+        </div>
+    );
+};
+
+export default App;

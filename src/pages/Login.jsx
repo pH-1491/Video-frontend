@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import styles from '../styles/Login.module.css';
+import {useNavigate} from "react-router-dom";
 
 
 const Login = () => {
+
     const {
         register,        //connects input to the form
         handleSubmit,    //runs validation + calls your submit function
@@ -11,27 +13,25 @@ const Login = () => {
         formState: { errors },  //shows what went wrong in validation
     } = useForm();
 
+    const navigate = useNavigate();
     const onSubmit = async (data) => {
         try {
             const res = await axios.post(
                 'http://localhost:8000/api/v1/users/login',
                 {
-                    username: data.username,
-                    password: data.password,
                     email: data.email,
+                    password: data.password,
                 },
-                {
-                    withCredentials: true   //accepts cookies
-                }
+                { withCredentials: true }
             );
             console.log("Response:", res.data);
             alert("Login successful!");
-            window.location.href = "/dashboard";
+            navigate("/dashboard");
         } catch (e) {
             console.error(e)
             if (e.response?.status === 404) {
                 alert("User not found, please register first!");
-                window.location.href = "/register";
+                navigate("/register");
             } else if (e.response?.status === 401) {
                 alert("Invalid password!");
             } else {
@@ -39,7 +39,8 @@ const Login = () => {
             }
         }
         reset();
-    }
+    };
+
     return (
         <div className={styles.loginContainer}>
             <div className={styles.loginCard}>

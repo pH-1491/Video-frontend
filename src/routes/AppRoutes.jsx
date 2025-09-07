@@ -1,13 +1,15 @@
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "../App.jsx";
 import Login from "../pages/Login.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Register from "../pages/Register.jsx";
-import Profile from "../pages/Profile.jsx";
+import Welcome from "../pages/Welcome.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <Welcome />,
+
     },
     {
         path: "/login",
@@ -17,15 +19,9 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
     },
-    {
-        path: "/profile/:userName",
-        element: <Profile />
-    }
+
 ]);
 
-const AppRoutes = () => {
-    return <RouterProvider router={router} />;
-};
-
+const AppRoutes = () => <RouterProvider router={router} />;
 
 export default AppRoutes;
