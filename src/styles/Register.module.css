@@ -493,3 +493,27 @@
         transform: translateY(0);
     }
 }
+
+.loginLink {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.loginLink p {
+    color: #6b7280;
+    margin: 0;
+}
+
+.loginLinkText {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.loginLinkText:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}

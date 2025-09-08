@@ -1,7 +1,8 @@
 import {useForm} from "react-hook-form";
 import {useState} from "react";
 import axios from "axios";
-import styles from '../styles/Register.module.css'; // Import the CSS file
+import {useNavigate} from "react-router-dom";
+import styles from '../styles/Register.module.css';
 
 const Register = () => {
     const {
@@ -9,7 +10,7 @@ const Register = () => {
         handleSubmit,
         formState: {errors}
     } = useForm();
-
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
 
@@ -136,6 +137,19 @@ const Register = () => {
                         {message}
                     </p>
                 )}
+
+                {/* Login Link */}
+                <div className={styles.loginLink}>
+                    <p>
+                        Already have an account?{' '}
+                        <span
+                            onClick={() => navigate('/login')}
+                            className={styles.loginLinkText}
+                        >
+                            Login here
+                        </span>
+                    </p>
+                </div>
             </div>
         </div>
     );

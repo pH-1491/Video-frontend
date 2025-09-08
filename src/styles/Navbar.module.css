@@ -1,0 +1,292 @@
+
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.logo:hover {
+    color: #3b82f6;
+}
+
+.searchContainer {
+    position: relative;
+    flex: 1;
+    max-width: 28rem;
+    margin: 0 1rem;
+}
+
+.searchWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.875rem;
+}
+
+.searchInput:focus {
+    ring: 2px solid #3b82f6;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.searchInput::placeholder {
+    color: #9ca3af;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navButton {
+    position: relative;
+    padding: 0.5rem;
+    color: #4b5563;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navButton:hover {
+    color: #111827;
+    background-color: #f3f4f6;
+}
+
+.activeButton {
+    position: relative;
+    padding: 0.5rem;
+    color: #2563eb;
+    background-color: #dbeafe;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notificationDot {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: #ef4444;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.notificationPanel {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    width: 20rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem 0;
+    z-index: 10;
+    animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notificationItem {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.notificationItem:hover {
+    background-color: #f9fafb;
+}
+
+.notificationItem:last-child {
+    border-bottom: none;
+}
+
+.notificationTitle {
+    font-weight: 500;
+    color: #111827;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.notificationText {
+    color: #6b7280;
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.notificationTime {
+    color: #9ca3af;
+    font-size: 0.75rem;
+}
+
+.notificationHeader {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.notificationHeader h3 {
+    font-weight: 600;
+    color: #111827;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.notificationFooter {
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.notificationFooter button {
+    color: #2563eb;
+    background: none;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
+}
+
+.notificationFooter button:hover {
+    color: #1d4ed8;
+}
+
+.unreadIndicator {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    background-color: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .searchContainer {
+        max-width: 12rem;
+        margin: 0 0.5rem;
+    }
+
+    .rightSection {
+        gap: 0.25rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .notificationPanel {
+        width: 16rem;
+        right: -2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchContainer {
+        display: none;
+    }
+
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .notificationPanel {
+        width: 90vw;
+        right: -1rem;
+    }
+}

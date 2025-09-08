@@ -4,6 +4,7 @@ import styles from '../styles/Login.module.css';
 import {useNavigate} from "react-router-dom";
 
 
+
 const Login = () => {
 
     const {
@@ -26,7 +27,7 @@ const Login = () => {
             );
             console.log("Response:", res.data);
             alert("Login successful!");
-            navigate("/dashboard");
+            navigate("/home");
         } catch (e) {
             console.error(e)
             if (e.response?.status === 404) {
