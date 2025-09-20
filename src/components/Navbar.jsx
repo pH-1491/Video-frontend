@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Home, Settings, Bell, User } from 'lucide-react';
+import { Search, Home, Settings, Bell, User, Upload } from 'lucide-react';
 import styles from '../styles/Navbar.module.css';
 import {useNavigate} from "react-router-dom";
 
@@ -11,20 +11,27 @@ const Navbar = () => {
     const notifications = [
         {
             id: 1,
+            title: 'Welcome to Nistle',
+            text: 'Explore the new community',
+            time: 'a second ago',
+            unread: true,
+        },
+        {
+            id:2,
             title: 'New message received',
             text: 'You have a new message from John Doe',
             time: '2 minutes ago',
             unread: true
         },
         {
-            id: 2,
+            id: 3,
             title: 'System update',
             text: 'Your system has been updated successfully',
             time: '1 hour ago',
             unread: true
         },
         {
-            id: 3,
+            id: 4,
             title: 'Task completed',
             text: 'Your report has been generated',
             time: '3 hours ago',
@@ -34,6 +41,7 @@ const Navbar = () => {
 
     const unreadCount = notifications.filter(n => n.unread).length;
     const navigate = useNavigate();
+
     const handleSearch = (e) => {
         if (e.key === 'Enter') {
             console.log('Searching for:', searchQuery);
@@ -61,7 +69,7 @@ const Navbar = () => {
                     {/* Left Section - Logo */}
                     <div className={styles.leftSection}>
                         <div className={styles.logo}>
-                            MyApp
+                            Nistle
                         </div>
                     </div>
 
@@ -89,6 +97,15 @@ const Navbar = () => {
                             title="Dashboard"
                         >
                             <Home size={20} />
+                        </button>
+
+                        {/* Publish Button */}
+                        <button
+                            onClick={() => handleTabClick('publish')}
+                            className={activeTab === 'publish' ? styles.activeButton : styles.navButton}
+                            title="Publish"
+                        >
+                            <Upload size={20} />
                         </button>
 
                         {/* Notifications Button */}
