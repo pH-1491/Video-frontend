@@ -101,7 +101,7 @@ const Navbar = () => {
 
                         {/* Publish Button */}
                         <button
-                            onClick={() => handleTabClick('publish')}
+                            onClick={() => handleTabClick('upload')}
                             className={activeTab === 'publish' ? styles.activeButton : styles.navButton}
                             title="Publish"
                         >

@@ -5,6 +5,8 @@ import Register from "../pages/Register.jsx";
 import Welcome from "../pages/Welcome.jsx";
 import Home from "../pages/Home.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
+import UploadVideo from "../pages/Upload.jsx";
+
 
 const router = createBrowserRouter([
     {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
     {
         path: "/dashboard/:userName",
         element: <Dashboard />,
+    },
+    {
+        path: "/upload",
+        element: <UploadVideo />,
     }
 
 ]);
