@@ -30,8 +30,7 @@ This is the frontend application for a video platform, designed to provide users
 - **Styling:** CSS Modules / Styled Components / Tailwind CSS (specify which is used)
 - **HTTP Client:** Axios / Fetch API
 - **Routing:** React Router (if applicable)
-- **Build Tool:** Vite / Create React App / Next.js (specify)
-- **Others:** Add any additional tools or libraries
+- **Build Tool:** Vite / Create React App 
 
 ## Getting Started
 
