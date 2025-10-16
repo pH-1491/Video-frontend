@@ -56,11 +56,12 @@ const Navbar = () => {
     const handleTabClick = (tab) => {
         setActiveTab(tab);
         if (tab === "dashboard" && userName) {
-            navigate(`/dashboard/${userName}`);
+            navigate(`/dashboard/${encodeURIComponent(userName)}`);
         } else {
             navigate(`/${tab}`);
         }
     };
+
 
     return (
         <nav className={styles.navbar}>

@@ -26,8 +26,14 @@ const Login = () => {
                 { withCredentials: true }
             );
             console.log("Response:", res.data);
+
+            // Store username and access token for Dashboard
+            localStorage.setItem("username", res.data.data.user.username);
+            localStorage.setItem("token", res.data.data.accessToken);
+
+
             alert("Login successful!");
-            navigate("/home");
+            navigate("/dashboard");
         } catch (e) {
             console.error(e)
             if (e.response?.status === 404) {

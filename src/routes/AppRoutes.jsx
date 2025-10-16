@@ -6,6 +6,7 @@ import Welcome from "../pages/Welcome.jsx";
 import Home from "../pages/Home.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import UploadVideo from "../pages/Upload.jsx";
+import Profile from "../pages/Profile.jsx";
 
 
 const router = createBrowserRouter([
@@ -27,12 +28,16 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: "/dashboard/:userName",
+        path: "/dashboard",
         element: <Dashboard />,
     },
     {
         path: "/upload",
         element: <UploadVideo />,
+    },
+    {
+        path: "/profile",
+        element: <Profile />,
     }
 
 ]);
