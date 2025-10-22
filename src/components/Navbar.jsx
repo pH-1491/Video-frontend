@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Search, Home, Settings, Bell, User, Upload } from 'lucide-react';
+import { Search, Home, Settings, Bell, Upload, LogOut, X } from 'lucide-react';
 import styles from '../styles/Navbar.module.css';
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -16,25 +17,19 @@ const Navbar = () => {
             time: 'a second ago',
             unread: true,
         },
-        {
-            id:2,
-            title: 'New message received',
-            text: 'You have a new message from John Doe',
-            time: '2 minutes ago',
-            unread: true
-        },
+
         {
             id: 3,
             title: 'System update',
             text: 'Your system has been updated successfully',
-            time: '1 hour ago',
+            time: '1 minute ago',
             unread: true
         },
         {
             id: 4,
             title: 'Task completed',
             text: 'Your report has been generated',
-            time: '3 hours ago',
+            time: '3 minutes ago',
             unread: false
         }
     ];
@@ -45,7 +40,7 @@ const Navbar = () => {
     const handleSearch = (e) => {
         if (e.key === 'Enter') {
             console.log('Searching for:', searchQuery);
-            // Add your search logic here
+            // search logic
         }
     };
 
@@ -60,6 +55,34 @@ const Navbar = () => {
         } else {
             navigate(`/${tab}`);
         }
+    };
+
+    const handleLogout = async () => {
+        try {
+            console.log("Logging out...");
+            await axios.post(
+                "http://localhost:8000/api/v1/users/logout",
+                {},
+                {
+                    withCredentials: true,
+                }
+            );
+
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("refreshToken");
+
+
+            navigate("/login");
+            alert("Logged out successfully");
+
+        } catch (error) {
+            console.error("Logout failed:", error);
+            alert("Error logging out, please try again!");
+        }
+    };
+
+    const closeNotifications = () => {
+        setShowNotifications(false);
     };
 
 
@@ -127,23 +150,32 @@ const Navbar = () => {
                                 <div className={styles.notificationPanel}>
                                     <div className={styles.notificationHeader}>
                                         <h3>Notifications</h3>
+                                        <button
+                                            className={styles.closeButton}
+                                            onClick={closeNotifications}
+                                            title="Close"
+                                        >
+                                            <X size={18} />
+                                        </button>
                                     </div>
-                                    {notifications.map((notification) => (
-                                        <div key={notification.id} className={styles.notificationItem}>
-                                            <div className={styles.notificationTitle}>
-                                                {notification.title}
-                                                {notification.unread && (
-                                                    <span className={styles.unreadIndicator}></span>
-                                                )}
+                                    <div className={styles.notificationList}>
+                                        {notifications.map((notification) => (
+                                            <div key={notification.id} className={styles.notificationItem}>
+                                                <div className={styles.notificationTitle}>
+                                                    {notification.title}
+                                                    {notification.unread && (
+                                                        <span className={styles.unreadIndicator}></span>
+                                                    )}
+                                                </div>
+                                                <div className={styles.notificationText}>
+                                                    {notification.text}
+                                                </div>
+                                                <div className={styles.notificationTime}>
+                                                    {notification.time}
+                                                </div>
                                             </div>
-                                            <div className={styles.notificationText}>
-                                                {notification.text}
-                                            </div>
-                                            <div className={styles.notificationTime}>
-                                                {notification.time}
-                                            </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                     <div className={styles.notificationFooter}>
                                         <button>View all notifications</button>
                                     </div>
@@ -160,13 +192,13 @@ const Navbar = () => {
                             <Settings size={20} />
                         </button>
 
-                        {/* User Profile Button */}
+                        {/* Logout Button */}
                         <button
-                            onClick={() => handleTabClick('profile')}
-                            className={styles.navButton}
-                            title="Profile"
+                            onClick={handleLogout}
+                            className={styles.logoutButton}
+                            title="Logout"
                         >
-                            <User size={20} />
+                            <LogOut size={20} />
                         </button>
                     </div>
                 </div>
@@ -176,7 +208,7 @@ const Navbar = () => {
             {showNotifications && (
                 <div
                     className={styles.overlay}
-                    onClick={() => setShowNotifications(false)}
+                    onClick={closeNotifications}
                 ></div>
             )}
         </nav>

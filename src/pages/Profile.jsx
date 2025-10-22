@@ -27,7 +27,7 @@ function Profile() {
         fetchProfile();
     }, [userName]);
 
-    if (!profile) return <p>Loading...</p>;
+    if (!profile) return <p>Please login to see your profile :)</p>;
 
     return (
         <div>
