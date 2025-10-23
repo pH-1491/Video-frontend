@@ -25,6 +25,14 @@ const UpdateProfileImg = () => {
             return;
         }
 
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            setMessage("Please login first!");
+            setMessageType("error");
+            return;
+        }
+
         try {
             setLoading(true);
             setMessage("");
@@ -37,8 +45,8 @@ const UpdateProfileImg = () => {
                 formData,
                 {
                     headers: {
-                        "Content-Type": "multipart/form-data",
-                        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                        //"Content-Type": "multipart/form-data",
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
                     },
                     withCredentials: true,
                 }
