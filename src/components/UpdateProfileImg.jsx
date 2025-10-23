@@ -33,7 +33,7 @@ const UpdateProfileImg = () => {
             formData.append("avatar", file);
 
             const res = await axios.patch(
-                `${import.meta.env.VITE_API_URL}/api/v1/users/avatar`,
+                `http://localhost:8000/api/v1/users/avatar`,
                 formData,
                 {
                     headers: {
