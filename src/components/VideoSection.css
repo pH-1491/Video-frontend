@@ -1,4 +1,4 @@
-/* Video Section Container */
+
 .video-section {
     min-height: 100vh;
     background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
@@ -16,7 +16,7 @@
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 2rem;
-    text-align: left;
+    text-align: center;
     letter-spacing: -0.5px;
 }
 
@@ -214,4 +214,14 @@
     .video-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.video-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }

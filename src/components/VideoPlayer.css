@@ -1,0 +1,493 @@
+.video-player-container {
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+.video-player-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.back-button:hover {
+    color: #ffffff;
+}
+
+.back-arrow {
+    font-size: 1.2rem;
+}
+
+.video-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .video-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    background-color: #000000;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(88, 28, 135, 0.2), rgba(29, 78, 216, 0.2));
+}
+
+.placeholder-content {
+    text-align: center;
+}
+
+.play-button-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.play-icon {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-left: 20px solid white;
+    border-bottom: 12px solid transparent;
+    margin-left: 4px;
+}
+
+.placeholder-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+}
+
+/* Video Info */
+.video-info {
+    margin-bottom: 0.5rem;
+}
+
+.video-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.video-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.video-stats {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.like-dislike-group {
+    display: flex;
+    align-items: center;
+    background-color: #272727;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background-color: #272727;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #3a3a3a;
+}
+
+.like-btn.active,
+.dislike-btn.active {
+    color: #3ea6ff;
+}
+
+.divider {
+    width: 1px;
+    height: 24px;
+    background-color: #3a3a3a;
+}
+
+.icon {
+    font-size: 1.1rem;
+}
+
+.count {
+    font-weight: 600;
+}
+
+/* Channel Info */
+.channel-info {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.channel-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.channel-left {
+    display: flex;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.channel-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.channel-details {
+    flex: 1;
+}
+
+.channel-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.125rem;
+}
+
+.subscriber-count {
+    font-size: 0.875rem;
+    color: #a0a0a0;
+    margin-bottom: 0.5rem;
+}
+
+.channel-description {
+    font-size: 0.875rem;
+    color: #d0d0d0;
+    line-height: 1.4;
+}
+
+.subscribe-btn {
+    padding: 0.625rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.subscribe-btn:not(.subscribed) {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.subscribe-btn:not(.subscribed):hover {
+    background-color: #e0e0e0;
+}
+
+.subscribe-btn.subscribed {
+    background-color: #272727;
+    color: #ffffff;
+}
+
+.subscribe-btn.subscribed:hover {
+    background-color: #3a3a3a;
+}
+
+.bell-icon {
+    font-size: 1rem;
+}
+
+/* Comments Section */
+.comments-section {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.comments-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Add Comment */
+.add-comment {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 0.875rem;
+}
+
+.user-avatar {
+    background: linear-gradient(135deg, #10b981, #14b8a6);
+}
+
+.comment-input-wrapper {
+    flex: 1;
+}
+
+.comment-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #3a3a3a;
+    padding-bottom: 0.5rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.comment-input:focus {
+    border-bottom-color: #6b6b6b;
+}
+
+.comment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.cancel-btn,
+.submit-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cancel-btn {
+    background: transparent;
+    color: #ffffff;
+}
+
+.cancel-btn:hover {
+    background-color: #272727;
+}
+
+.submit-btn {
+    background-color: #3ea6ff;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.submit-btn:hover {
+    background-color: #1c8ee5;
+}
+
+.submit-btn:disabled {
+    background-color: #272727;
+    color: #6b6b6b;
+    cursor: not-allowed;
+}
+
+/* Comments List */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.comment .comment-avatar {
+    background: linear-gradient(135deg, #f97316, #ec4899);
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.comment-author {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.comment-time {
+    font-size: 0.75rem;
+    color: #6b6b6b;
+}
+
+.comment-text {
+    font-size: 0.875rem;
+    color: #d0d0d0;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.comment-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.comment-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.comment-action-btn:hover {
+    color: #ffffff;
+}
+
+.icon-small {
+    font-size: 0.875rem;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.suggested-video {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.suggested-video:hover {
+    background-color: #1a1a1a;
+}
+
+.suggested-thumbnail {
+    width: 160px;
+    height: 90px;
+    background: linear-gradient(135deg, #272727, #1a1a1a);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.suggested-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.suggested-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.suggested-channel,
+.suggested-stats {
+    font-size: 0.75rem;
+    color: #a0a0a0;
+}

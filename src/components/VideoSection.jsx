@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./VideoSection.css";
 
-const VideoSection = () => {
+const VideoSection = ({ onVideoSelect }) => {
     const [videos, setVideos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
     const fetchVideos = async (pageNumber = 1) => {
         try {
             setLoading(true);
-
             const token = localStorage.getItem("token");
 
             const res = await fetch(
@@ -30,7 +28,6 @@ const VideoSection = () => {
             if (!res.ok) throw new Error("Failed to fetch videos");
 
             const result = await res.json();
-
             setVideos(result?.data?.videos || []);
             setTotalPages(result?.data?.totalPages || 1);
         } catch (err) {
@@ -43,6 +40,12 @@ const VideoSection = () => {
     useEffect(() => {
         fetchVideos(page);
     }, [page]);
+
+    const handleVideoClick = (video) => {
+        if (onVideoSelect) {
+            onVideoSelect(video);
+        }
+    };
 
     if (loading) return <p className="loading-text">Loading videos...</p>;
     if (error) return <p className="error-text">{error}</p>;
@@ -57,7 +60,12 @@ const VideoSection = () => {
                 ) : (
                     <div className="video-grid">
                         {videos.map((video) => (
-                            <div key={video._id} className="video-card">
+                            <div
+                                key={video._id}
+                                className="video-card"
+                                onClick={() => handleVideoClick(video)}
+                                style={{ cursor: 'pointer' }}
+                            >
                                 {/* Thumbnail */}
                                 <div className="thumbnail-container">
                                     <img
