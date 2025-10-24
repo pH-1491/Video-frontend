@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Dashboard.css";
+import WatchHistory from "../components/WatchHistory.jsx";
 
 function Dashboard() {
     const [profile, setProfile] = useState(null);
@@ -34,50 +35,53 @@ function Dashboard() {
     }
 
     return (
-        <div className="dashboard-container">
-            <div className="cover-section">
-                <img
-                    src={profile.coverImage}
-                    alt="cover"
-                    className="cover-image"
-                />
-            </div>
-
-            <div className="profile-content">
-                <div className="profile-header">
+        <div className="dashboard-wrapper">
+            <div className="dashboard-container">
+                <div className="cover-section">
                     <img
-                        src={profile.avatar}
-                        alt="avatar"
-                        className="avatar-image"
+                        src={profile.coverImage}
+                        alt="cover"
+                        className="cover-image"
                     />
-
-                    <div className="profile-info">
-                        <h2 className="full-name">{profile.fullName}</h2>
-                        <p className="username">@{profile.userName}</p>
-                        <p className="email">{profile.email}</p>
-                    </div>
-
-                    <div className="subscribe-section">
-                        {profile.isSubscribed ? (
-                            <button className="btn btn-unsubscribe">Unsubscribe</button>
-                        ) : (
-                            <button className="btn btn-subscribe">Subscribe</button>
-                        )}
-                    </div>
                 </div>
 
-                <div className="stats-section">
-                    <div className="stat-item">
-                        <span className="stat-number">{profile.subscribersCount}</span>
-                        <span className="stat-label">Subscribers</span>
+                <div className="profile-content">
+                    <div className="profile-header">
+                        <img
+                            src={profile.avatar}
+                            alt="avatar"
+                            className="avatar-image"
+                        />
+
+                        <div className="profile-info">
+                            <h2 className="full-name">{profile.fullName}</h2>
+                            <p className="username">@{profile.userName}</p>
+                            <p className="email">{profile.email}</p>
+                        </div>
+
+                        <div className="subscribe-section">
+                            {profile.isSubscribed ? (
+                                <button className="btn btn-unsubscribe">Unsubscribe</button>
+                            ) : (
+                                <button className="btn btn-subscribe">Subscribe</button>
+                            )}
+                        </div>
                     </div>
-                    <div className="stat-divider"></div>
-                    <div className="stat-item">
-                        <span className="stat-number">{profile.channelsSubscribedToCount}</span>
-                        <span className="stat-label">Following</span>
+
+                    <div className="stats-section">
+                        <div className="stat-item">
+                            <span className="stat-number">{profile.subscribersCount}</span>
+                            <span className="stat-label">Subscribers</span>
+                        </div>
+                        <div className="stat-divider"></div>
+                        <div className="stat-item">
+                            <span className="stat-number">{profile.channelsSubscribedToCount}</span>
+                            <span className="stat-label">Following</span>
+                        </div>
                     </div>
                 </div>
             </div>
+            <WatchHistory />
         </div>
     );
 }

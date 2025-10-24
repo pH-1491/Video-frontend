@@ -1,32 +1,47 @@
-* {
+
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background: #0f0f1e;
+    min-height: 100vh;
 }
 
-.dashboard-container {
-    background-color: #0f0f0f;
+
+.dashboard-wrapper {
     min-height: 100vh;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f0f1e;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
+
+.dashboard-container {
+    width: 100%;
+    margin: 0 auto 32px;
+    background: linear-gradient(135deg, #1e1e3f 0%, #1a1a2e 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
 
 .loading-container {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
-    background-color: #0f0f0f;
+    background: #0f0f1e;
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 18px;
 }
 
-/* Cover Section */
+
 .cover-section {
     width: 100%;
-    height: 300px;
+    height: 280px;
     overflow: hidden;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    position: relative;
 }
 
 .cover-image {
@@ -35,170 +50,192 @@
     object-fit: cover;
 }
 
-/* Profile Content */
-.profile-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-/* Profile Header */
-.profile-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
+.profile-content {
+    padding: 0 32px 32px;
     margin-top: -60px;
     position: relative;
-    flex-wrap: wrap;
+}
+
+.profile-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
 .avatar-image {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    border: 5px solid #0f0f0f;
+    border: 5px solid #1a1a2e;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .profile-info {
     flex: 1;
-    min-width: 250px;
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
 .full-name {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 8px;
     color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
 }
 
 .username {
-    font-size: 1rem;
-    color: #aaaaaa;
-    margin-bottom: 8px;
+    color: #a0a0b0;
+    font-size: 18px;
+    margin: 0 0 4px 0;
 }
 
 .email {
-    font-size: 0.95rem;
-    color: #888888;
-    margin-top: 10px;
+    color: #6c5ce7;
+    font-size: 16px;
+    margin: 0;
 }
+
 
 .subscribe-section {
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
-/* Buttons */
 .btn {
     padding: 12px 32px;
     border: none;
-    border-radius: 25px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .btn-subscribe {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6c5ce7 0%, #a55eea 100%);
     color: #ffffff;
 }
 
 .btn-subscribe:hover {
+    background: linear-gradient(135deg, #5f4fd1 0%, #9149d4 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.4);
 }
 
 .btn-unsubscribe {
-    background-color: transparent;
+    background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    border: 2px solid #444444;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-unsubscribe:hover {
-    background-color: #1a1a1a;
-    border-color: #666666;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Stats Section */
+
 .stats-section {
     display: flex;
     align-items: center;
-    gap: 40px;
-    margin-top: 40px;
-    padding: 30px;
-    background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    gap: 32px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stat-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 }
 
 .stat-number {
-    font-size: 2rem;
+    color: #ffffff;
+    font-size: 28px;
     font-weight: 700;
-    color: #667eea;
 }
 
 .stat-label {
-    font-size: 0.9rem;
-    color: #aaaaaa;
+    color: #a0a0b0;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .stat-divider {
     width: 1px;
-    height: 50px;
-    background-color: #333333;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
+    .dashboard-wrapper {
+        padding: 16px;
+    }
+
     .cover-section {
         height: 200px;
+    }
+
+    .profile-content {
+        padding: 0 16px 24px;
+        margin-top: -40px;
     }
 
     .profile-header {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin-top: -50px;
+        gap: 16px;
     }
 
     .avatar-image {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
 
     .profile-info {
-        padding-top: 20px;
-    }
-
-    .subscribe-section {
         padding-top: 0;
     }
 
     .full-name {
-        font-size: 1.5rem;
+        font-size: 24px;
+    }
+
+    .username {
+        font-size: 16px;
+    }
+
+    .subscribe-section {
+        padding-top: 0;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
     }
 
     .stats-section {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .stat-number {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-section {
         flex-direction: column;
-        gap: 20px;
     }
 
     .stat-divider {
-        width: 80%;
+        width: 60px;
         height: 1px;
     }
 }
