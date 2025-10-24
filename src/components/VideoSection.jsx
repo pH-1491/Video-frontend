@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./VideoSection.css";
+import "../styles/VideoSection.css";
 
 const VideoSection = ({ onVideoSelect }) => {
     const [videos, setVideos] = useState([]);

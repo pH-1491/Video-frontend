@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './VideoPlayer.css';
+import '../styles/VideoPlayer.css';
 
 const VideoPlayer = ({ video, onBack }) => {
     const [liked, setLiked] = useState(false);

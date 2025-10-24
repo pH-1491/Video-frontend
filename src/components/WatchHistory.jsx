@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./WatchHistory.css";
+import "../styles/WatchHistory.css";
 
 const WatchHistory = () => {
     const [history, setHistory] = useState([]);
