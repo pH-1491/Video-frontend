@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Film, Camera, Upload } from "lucide-react";
-import './Upload.css';
+import '../styles/Upload.css';
 
 
 export default function UploadVideoForm() {

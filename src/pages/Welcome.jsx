@@ -40,33 +40,33 @@ const Welcome = () => {
                     <div className={styles.features}>
                         <div className={styles.featureCard}>
                             <div className={styles.featureIcon}>⚡</div>
-                            <h3 className={styles.featureTitle}>Fast & Reliable</h3>
+                            <h3 className={styles.featureTitle}></h3>
                             <p className={styles.featureDescription}>
-                                Lightning-fast performance with 99.9% uptime guarantee
+
                             </p>
                         </div>
 
                         <div className={styles.featureCard}>
                             <div className={styles.featureIcon}>🔒</div>
-                            <h3 className={styles.featureTitle}>Secure</h3>
+                            <h3 className={styles.featureTitle}></h3>
                             <p className={styles.featureDescription}>
-                                Enterprise-grade security to keep your data safe
+
                             </p>
                         </div>
 
                         <div className={styles.featureCard}>
                             <div className={styles.featureIcon}>🌟</div>
-                            <h3 className={styles.featureTitle}>Easy to Use</h3>
+                            <h3 className={styles.featureTitle}></h3>
                             <p className={styles.featureDescription}>
-                                Intuitive interface designed for everyone
+
                             </p>
                         </div>
 
                         <div className={styles.featureCard}>
                             <div className={styles.featureIcon}>🚀</div>
-                            <h3 className={styles.featureTitle}>Scalable</h3>
+                            <h3 className={styles.featureTitle}></h3>
                             <p className={styles.featureDescription}>
-                                Grows with your business from startup to enterprise
+
                             </p>
                         </div>
                     </div>

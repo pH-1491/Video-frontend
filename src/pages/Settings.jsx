@@ -4,7 +4,7 @@ import UpdateProfileImg from "../components/UpdateProfileImg.jsx";
 import UpdatePassword from "../components/UpdatePassword.jsx";
 import UpdateCoverImage from "../components/UpdateCoverImage.jsx";
 import UpdateEmail from "../components/UpdateEmail.jsx";
-import "./Settings.css";
+import "../styles/Settings.css";
 
 const Settings = () => {
     const [activeSection, setActiveSection] = useState(null);

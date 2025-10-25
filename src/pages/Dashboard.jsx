@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Dashboard.css";
+import "../styles/Dashboard.css";
 import WatchHistory from "../components/WatchHistory.jsx";
 
 function Dashboard() {
